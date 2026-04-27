@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nanapiyasa Learning Platform - Transform Your Future</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://unpkg.com/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #7c3aed;
+            --accent-color: #06b6d4;
+            --dark-color: #1e293b;
+            --light-bg: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-color) !important;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .navbar-nav .nav-link.active {
+            color: var(--primary-color) !important;
+            font-weight: 600 !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .nav-link.dropdown-toggle::after {
+            display: none;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(31, 111, 95, 0.8) 0%, rgba(31, 111, 95, 0.8) 100%),
+                        url('background2.png') center/cover no-repeat;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s;
+            animation-fill-mode: both;
+        }
+
+        .btn-hero {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 400;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s;
+            animation-fill-mode: both;
+        }
+
+        .btn-primary-hero {
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            border: none;
+            color: white;
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.3);
+        }
+
+        .btn-primary-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(79, 70, 229, 0.4);
+        }
+
+        .btn-outline-hero {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            margin-left: 15px;
+        }
+
+        .btn-outline-hero:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 100px 0;
+            background: var(--light-bg);
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        /* Courses Section */
+        .courses-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .course-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .course-img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .course-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Statistics Section */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 80px 0;
+            color: white;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 100px 0;
+            background: var(--light-bg);
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #64748b;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-widget h5 {
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .btn-hero {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+            
+            .btn-outline-hero {
+                margin-left: 0;
+                margin-top: 15px;
+                display: block;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="bi bi-mortarboard-fill"></i> Nanapiyasa
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#domain">Domain</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#milestones">Milestones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#documents">Documents</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#presentations">Slides of past presentations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showContactInfo(event)">Contact us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <div class="hero-content text-white">
+                        <h1>Welcome to Nanapiyasa Learning Platform</h1>
+                        <p style="text-align: left;">This research presents an intelligent, multimodal platform designed to support students with Down syndrome through cognitive assessment, real-time engagement monitoring, and personalized learning recommendations using Artificial Intelligence and IoT technologies.</p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-hero btn-primary-hero">Get Started</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image text-center" data-aos="fade-left">
+                        <img src="background2.png" alt="Learning Platform" class="img-fluid rounded-3 shadow-lg" style="height: 400px; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Domain Section -->
+    <section id="domain" class="features-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-4 fw-bold mb-3">Domain Overview</h2>
+                <p class="lead text-muted">Research Background, Literature Survey, and Methodology</p>
+            </div>
+            
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-10">
+                    <div class="domain-overview p-5 bg-white rounded-3 shadow-sm" data-aos="fade-up">
+                        <p class="lead" style="text-align: justify;">This section explains the background of our research, including existing studies, identified gaps, and how our proposed system addresses real-world challenges.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Literature Survey -->
+            <div class="text-center mb-4" data-aos="fade-up">
+                <h4 class="fw-bold text-primary mb-3">Literature Survey</h4>
+            </div>
+            
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-10">
+                    <div class="literature-tile p-5 bg-white rounded-3 shadow-sm" data-aos="fade-up">
+                        <p class="lead" style="text-align: justify;">Modern technologies such as Artificial Intelligence (AI), Machine Learning (ML), and the Internet of Things (IoT) have significantly improved the way educational systems support diverse learners.</p>
+                        
+                        <p class="lead mt-3" style="text-align: justify;">Research shows that gamified learning environments help students stay engaged while allowing systems to collect important cognitive data such as memory accuracy, reaction time, and error rates.</p>
+                        
+                        <p class="lead mt-3" style="text-align: justify;">At the same time, IoT-based sensors can monitor physiological signals like heart rate, which provide insights into a student's attention and emotional state.</p>
+                        
+                        <p class="lead mt-3" style="text-align: justify;">In addition, machine learning models are widely used to analyze learning patterns, classify student performance, and generate predictions. Educational dashboards also help teachers monitor progress and make informed decisions.</p>
+                        
+                        <p class="lead mt-3" style="text-align: justify;">However, most existing solutions focus only on individual features rather than combining all these capabilities into one unified system.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Research Gap -->
+            <div class="text-center mb-4" data-aos="fade-up">
+                <h4 class="fw-bold text-secondary mb-3">Research Gap</h4>
+            </div>
+            
+            <div class="row g-4 mb-5">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="gap-tile h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-secondary bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-puzzle text-secondary fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-secondary mb-2" style="font-weight: 400;">Lack of Integrated Systems</h4>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">Combining learning, monitoring, and analytics into one unified platform</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="gap-tile h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-info bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-person-heart text-info fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-info mb-2" style="font-weight: 400;">Limited Solutions for Down Syndrome</h4>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">Few systems specifically designed for students with Down syndrome</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="gap-tile h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-warning bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-arrow-repeat text-warning fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-warning mb-2" style="font-weight: 400;">Minimal Real-time Adaptation</h4>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">Insufficient use of real-time adaptive learning approaches</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="gap-tile h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-success bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-briefcase text-success fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-success mb-2" style="font-weight: 400;">Lack of Vocational Guidance</h4>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">Insufficient personalized vocational guidance systems</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-10">
+                    <div class="gap-summary p-4 bg-white rounded-3 shadow-sm" data-aos="fade-up">
+                        <p class="text-muted" style="text-align: justify;">These limitations highlight the need for a more comprehensive and intelligent solution.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Research Problem -->
+            <div class="text-center mb-4" data-aos="fade-up">
+                <h4 class="fw-bold text-primary mb-3">Research Problem</h4>
+            </div>
+            
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-10">
+                    <div class="problem-tile p-5 bg-white rounded-3 shadow-sm" data-aos="fade-up">
+                        <p class="lead" style="text-align: justify;">Students with Down syndrome often face difficulties in learning, communication, and social interaction. Traditional education systems are not flexible enough to support their individual needs.</p>
+                        
+                        <p class="lead mt-3" style="text-align: justify;">There is a need for a system that can:</p>
+                        
+                        <ul class="list-unstyled mt-3">
+                            <li class="mb-2 lead"><i class="bi bi-check-circle-fill text-primary me-2"></i> Understand each student's abilities</li>
+                            <li class="mb-2 lead"><i class="bi bi-check-circle-fill text-primary me-2"></i> Monitor engagement in real time</li>
+                            <li class="mb-2 lead"><i class="bi bi-check-circle-fill text-primary me-2"></i> Provide personalized learning support</li>
+                            <li class="mb-2 lead"><i class="bi bi-check-circle-fill text-primary me-2"></i> Guide students toward suitable career paths</li>
+                        </ul>
+                        
+                        <div class="key-problem mt-4 p-3 bg-primary bg-opacity-10 rounded-2">
+                            <p class="lead mb-0" style="text-align: justify;"><strong>Key Problem:</strong> How can we design an intelligent system that uses both behavioral and physiological data to improve learning and support future independence?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Research Objectives -->
+            <div class="text-center mb-4" data-aos="fade-up">
+                <h4 class="fw-bold text-secondary mb-3">Research Objectives</h4>
+            </div>
+            
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-10">
+                    <div class="objectives-tile p-5 bg-white rounded-3 shadow-sm" data-aos="fade-up">
+                        <div class="main-objective mb-4">
+                            <h5 class="text-secondary mb-2" style="font-weight: 400;">Main Objective</h5>
+                            <p class="lead" style="text-align: justify;">To develop an AI-powered platform that supports personalized learning and skill development for students with Down syndrome.</p>
+                        </div>
+                        
+                        <div class="key-objectives">
+                            <h5 class="text-secondary mb-3" style="font-weight: 400;">Key Objectives</h5>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="objective-item p-3 bg-light rounded-2">
+                                        <i class="bi bi-controller text-primary me-2"></i>
+                                        <span>Develop a gamified system to assess cognitive skills</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="objective-item p-3 bg-light rounded-2">
+                                        <i class="bi bi-activity text-secondary me-2"></i>
+                                        <span>Use IoT sensors to monitor engagement</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="objective-item p-3 bg-light rounded-2">
+                                        <i class="bi bi-cpu text-info me-2"></i>
+                                        <span>Apply machine learning to analyze student data</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="objective-item p-3 bg-light rounded-2">
+                                        <i class="bi bi-graph-up text-success me-2"></i>
+                                        <span>Build a dashboard for teachers and caregivers</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="objective-item p-3 bg-light rounded-2">
+                                        <i class="bi bi-briefcase text-warning me-2"></i>
+                                        <span>Provide personalized career recommendations</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="objective-item p-3 bg-light rounded-2">
+                                        <i class="bi bi-chat-dots text-primary me-2"></i>
+                                        <span>Improve communication skills using an AI chatbot</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Methodology -->
+            <div class="text-center mb-4" data-aos="fade-up">
+                <h4 class="fw-bold text-info mb-3">Methodology</h4>
+            </div>
+            
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-10">
+                    <div class="methodology-tile p-5 bg-white rounded-3 shadow-sm" data-aos="fade-up">
+                        <p class="lead" style="text-align: justify;">The system follows a structured process:</p>
+                        
+                        <div class="process-steps mt-4">
+                            <div class="step-item d-flex align-items-start mb-4">
+                                <div class="step-number bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px; font-weight: bold;">1</div>
+                                <div>
+                                    <h5 class="text-primary mb-2" style="font-weight: 400;">Data Collection</h5>
+                                    <p class="text-muted" style="text-align: justify;">Collect behavioral data from games and physiological data from sensors</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item d-flex align-items-start mb-4">
+                                <div class="step-number bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px; font-weight: bold;">2</div>
+                                <div>
+                                    <h5 class="text-secondary mb-2" style="font-weight: 400;">Data Processing</h5>
+                                    <p class="text-muted" style="text-align: justify;">Clean and normalize the collected data</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item d-flex align-items-start mb-4">
+                                <div class="step-number bg-info text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px; font-weight: bold;">3</div>
+                                <div>
+                                    <h5 class="text-info mb-2" style="font-weight: 400;">Feature Extraction</h5>
+                                    <p class="text-muted" style="text-align: justify;">Identify important patterns related to learning and engagement</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item d-flex align-items-start mb-4">
+                                <div class="step-number bg-warning text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px; font-weight: bold;">4</div>
+                                <div>
+                                    <h5 class="text-warning mb-2" style="font-weight: 400;">Machine Learning</h5>
+                                    <p class="text-muted" style="text-align: justify;">Classify student abilities and predict engagement levels</p>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item d-flex align-items-start">
+                                <div class="step-number bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px; font-weight: bold;">5</div>
+                                <div>
+                                    <h5 class="text-success mb-2" style="font-weight: 400;">Output Generation</h5>
+                                    <p class="text-muted" style="text-align: justify;">Provide insights, alerts, and recommendations through dashboards and interactive modules</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Technologies Used -->
+            <div class="text-center mb-4" data-aos="fade-up">
+                <h4 class="fw-bold text-success mb-3">Technologies Used</h4>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="tech-tile h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-primary bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-robot text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-primary mb-2" style="font-weight: 400;">Artificial Intelligence (AI)</h4>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">For intelligent decision-making and adaptive learning systems</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="tech-tile h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-secondary bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-diagram-3 text-secondary fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-secondary mb-2" style="font-weight: 400;">Machine Learning (ML)</h4>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">For predictions and classification of student performance</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="tech-tile h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-info bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-wifi text-info fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-info mb-2" style="font-weight: 400;">Internet of Things (IoT)</h4>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">For real-time data collection from sensors and devices</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="tech-tile h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-warning bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-chat-text text-warning fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-warning mb-2" style="font-weight: 400;">Natural Language Processing (NLP)</h4>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">For chatbot interactions and communication support</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center mt-4">
+                <div class="col-lg-6">
+                    <div class="tech-tile h-100 p-4 bg-white rounded-3 shadow-sm border-0" data-aos="fade-up" data-aos-delay="500">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-success bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-controller text-success fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-success mb-2" style="font-weight: 400;">Gamification & Learning Analytics</h4>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">To make learning engaging and provide tracking insights</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Milestones Section -->
+    <section id="milestones" class="features-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-4 fw-bold mb-3">Milestones</h2>
+                <p class="lead text-muted">Project Presentation Timeline</p>
+            </div>
+            
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8">
+                    <div class="milestones-overview p-5 bg-white rounded-3 shadow-sm" data-aos="fade-up">
+                        <p class="lead" style="text-align: justify;">The project follows a structured timeline with key presentation milestones to track progress and ensure successful completion.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="milestone-tile h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-primary bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-calendar-event text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-primary mb-2" style="font-weight: 400;">Proposal Presentation</h4>
+                            </div>
+                        </div>
+                        <p class="lead text-primary mb-2">8th of September 2025</p>
+                        <p class="text-muted" style="text-align: justify;">Initial project proposal presentation outlining research objectives, methodology, and expected outcomes.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="milestone-tile h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-secondary bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-graph-up-arrow text-secondary fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-secondary mb-2" style="font-weight: 400;">Progress Presentation 1</h4>
+                            </div>
+                        </div>
+                        <p class="lead text-secondary mb-2">8th of January 2026</p>
+                        <p class="text-muted" style="text-align: justify;">First progress review presenting initial research findings, system development status, and preliminary results.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="milestone-tile h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-info bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-clipboard-data text-info fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-info mb-2" style="font-weight: 400;">Progress Presentation 2</h4>
+                            </div>
+                        </div>
+                        <p class="lead text-info mb-2">11th of March 2026</p>
+                        <p class="text-muted" style="text-align: justify;">Second progress review showcasing system implementation, experimental results, and analysis of research findings.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="milestone-tile h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-success bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-trophy text-success fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-success mb-2" style="font-weight: 400;">Final Presentation</h4>
+                            </div>
+                        </div>
+                        <p class="lead text-success mb-2">6th of May 2026</p>
+                        <p class="text-muted" style="text-align: justify;">Comprehensive final presentation demonstrating complete system functionality, research outcomes, and conclusions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documents Section -->
+    <section id="documents" class="features-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-4 fw-bold mb-3">Documents</h2>
+                <p class="lead text-muted">Project Presentation Materials</p>
+            </div>
+            
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8">
+                    <div class="documents-overview p-5 bg-white rounded-3 shadow-sm" data-aos="fade-up">
+                        <p class="lead" style="text-align: justify;">Download the presentation materials from our progress meetings to review the development and findings of the Nanapiyasa Learning Platform project.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="document-tile h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-success bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-file-earmark-pdf text-success fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-success mb-2" style="font-weight: 400;">Project Proposal Document</h4>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-3" style="text-align: justify;">Comprehensive project proposal outlining research objectives, methodology, expected outcomes, and implementation plan for the Nanapiyasa Learning Platform.</p>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="text-muted small">PDF Document</span>
+                            <a href="IT22321022  Proposal Report (25-26J-218).pdf" download class="btn btn-success btn-sm">
+                                <i class="bi bi-download me-1"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="document-tile h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-primary bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-file-earmark-ppt text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-primary mb-2" style="font-weight: 400;">Progress Presentation 1</h4>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-3" style="text-align: justify;">First progress review presenting initial research findings, system development status, and preliminary results from January 2026.</p>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="text-muted small">PowerPoint Presentation</span>
+                            <a href="PP1 Progress Presentation.pptx" download class="btn btn-primary btn-sm">
+                                <i class="bi bi-download me-1"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="document-tile h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-secondary bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-file-earmark-ppt text-secondary fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-secondary mb-2" style="font-weight: 400;">Progress Presentation 2</h4>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-3" style="text-align: justify;">Second progress review showcasing system implementation, experimental results, and analysis of research findings from March 2026.</p>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="text-muted small">PowerPoint Presentation</span>
+                            <a href="PP2 Progress Presentation.pptx" download class="btn btn-secondary btn-sm">
+                                <i class="bi bi-download me-1"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center mt-4">
+                <div class="col-lg-8">
+                    <div class="note-tile p-4 bg-light bg-opacity-50 rounded-3" data-aos="fade-up" data-aos-delay="300">
+                        <div class="d-flex align-items-start">
+                            <i class="bi bi-info-circle text-info me-2 mt-1"></i>
+                            <p class="text-muted mb-0" style="text-align: justify;">
+                                <strong>Note:</strong> These presentation files contain detailed information about the project progress, methodology, experimental results, and system development. Click the download buttons to access the complete presentation materials.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Check List Documents Section -->
+            <div class="text-center mb-4 mt-5" data-aos="fade-up">
+                <h4 class="text-info mb-3" style="font-weight: 400;">Check List Documents</h4>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="checklist-tile p-4 bg-white rounded-3 shadow-sm" data-aos="fade-up" data-aos-delay="400">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-info bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-clipboard-check text-info fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-info mb-2" style="font-weight: 400;">Check Lisk 1 Document</h4>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-3" style="text-align: justify;">Comprehensive checklist document containing project requirements, validation criteria, and quality assurance measures for the Nanapiyasa Learning Platform.</p>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="text-muted small">Check List Document</span>
+                            <a href="https://github.com/Nanapiyasa/Research" target="_blank" class="btn btn-info btn-sm">
+                                <i class="bi bi-github me-1"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slides of Past Presentations Section -->
+    <section id="presentations" class="features-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-4 fw-bold mb-3">Slides of Past Presentations</h2>
+                <p class="lead text-muted">Presentation Materials and Slides</p>
+            </div>
+            
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8">
+                    <div class="presentations-overview p-5 bg-white rounded-3 shadow-sm" data-aos="fade-up">
+                        <p class="lead" style="text-align: justify;">Access the slides from our past presentations to review the project development, research findings, and system implementation progress.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="presentation-tile h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-primary bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-presentation text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-primary mb-2" style="font-weight: 400;">Progress Presentation 1</h4>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-3" style="text-align: justify;">First progress presentation slides covering initial research findings, system development status, and preliminary results from January 2026.</p>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="text-muted small">PowerPoint Slides</span>
+                            <a href="PP1 Progress Presentation.pptx" download class="btn btn-primary btn-sm">
+                                <i class="bi bi-download me-1"></i> Download Slides
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="presentation-tile h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-secondary bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-presentation text-secondary fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-secondary mb-2" style="font-weight: 400;">Progress Presentation 2</h4>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-3" style="text-align: justify;">Second progress presentation slides showcasing system implementation, experimental results, and analysis of research findings from March 2026.</p>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="text-muted small">PowerPoint Slides</span>
+                            <a href="PP2 Progress Presentation.pptx" download class="btn btn-secondary btn-sm">
+                                <i class="bi bi-download me-1"></i> Download Slides
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proposed Solution Section -->
+    <section id="courses" class="courses-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-4 fw-bold mb-3">Proposed Solution</h2>
+                <p class="lead text-muted">Multimodal AI-Driven Learning Support System</p>
+            </div>
+            
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-10">
+                    <div class="solution-overview p-5 bg-white rounded-3 shadow-sm" data-aos="fade-up">
+                        <p class="lead" style="text-align: justify;">This research introduces a multimodal AI-driven platform that integrates behavioral data, physiological signals, and machine learning to provide a comprehensive learning support system.</p>
+                        
+                        <p class="lead" style="text-align: justify;">By analyzing both interaction-based and physiological data, the system provides real-time insights and personalized recommendations to educators and caregivers.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mb-4" data-aos="fade-up">
+                <h4 class="fw-bold text-primary mb-3">The Platform Combines</h4>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="solution-card h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-primary bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-controller text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-primary mb-2">Gamified Cognitive Assessment</h5>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">Interactive game-based assessments that evaluate cognitive abilities while maintaining student engagement through fun, adaptive challenges.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="solution-card h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-secondary bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-activity text-secondary fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-secondary mb-2">IoT-Based Physiological Monitoring</h5>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">Real-time monitoring of physiological signals through IoT sensors to track stress levels, attention, and engagement during learning activities.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="solution-card h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-info bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-graph-up-arrow text-info fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-info mb-2">AI-Powered Analytics Dashboard</h5>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">Comprehensive analytics platform that processes multimodal data to provide actionable insights and progress tracking for educators.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="solution-card h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-success bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-briefcase text-success fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-success mb-2">Vocational Recommendation System</h5>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">Personalized career guidance system that matches individual strengths and abilities with suitable vocational pathways and opportunities.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center mt-4">
+                <div class="col-lg-6">
+                    <div class="solution-card h-100 p-4 bg-white rounded-3 shadow-sm border-0" data-aos="fade-up" data-aos-delay="500">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-warning bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-people text-warning fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-warning mb-2">Communication & Social Skills Training</h5>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">Interactive modules designed to improve communication abilities and social interaction skills through structured exercises and real-world scenarios.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data-Driven Approach Section -->
+    <section id="dataApproach" class="courses-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-4 fw-bold mb-3">Data-Driven Approach</h2>
+                <p class="lead text-muted">Structured Methodology for Intelligent Learning Support</p>
+            </div>
+            
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-9">
+                    <div class="approach-overview p-5 bg-white rounded-3 shadow-sm" data-aos="fade-up">
+                        <p class="lead" style="text-align: justify;">The system follows a structured, data-driven approach consisting of five key stages:</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="approach-card h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-primary bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-phone text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-primary mb-2">Data Collection</h5>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">Behavioral data such as memory accuracy and reaction time are collected through a gamified mobile application. Physiological data, including heart rate and variability, are captured using IoT devices.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="approach-card h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-secondary bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-funnel text-secondary fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-secondary mb-2">Data Processing</h5>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">Collected data undergoes noise filtering, normalization, and synchronization to ensure consistency and accuracy.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="approach-card h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-info bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-diagram-3 text-info fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-info mb-2">Feature Extraction</h5>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">Key features are extracted from both behavioral and physiological datasets to represent cognitive performance and engagement levels.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="approach-card h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-warning bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-robot text-warning fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-warning mb-2">Machine Learning</h5>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">Supervised learning models are used to classify students into functional ability levels and predict engagement patterns.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center mt-4">
+                <div class="col-lg-6">
+                    <div class="approach-card h-100 p-4 bg-white rounded-3 shadow-sm border-0" data-aos="fade-up" data-aos-delay="500">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-success bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-graph-up-arrow text-success fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-success mb-2">Prediction & Output</h5>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">The system generates insights, alerts, and recommendations based on analyzed data, supporting educators in decision-making.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Architecture Section -->
+    <section id="systemArchitecture" class="features-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-4 fw-bold mb-3">System Architecture</h2>
+                <p class="lead text-muted">Interconnected Components for Intelligent Learning Support</p>
+            </div>
+            
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-9">
+                    <div class="architecture-overview p-5 bg-white rounded-3 shadow-sm" data-aos="fade-up">
+                        <p class="lead" style="text-align: justify;">The system consists of multiple interconnected components working together to deliver intelligent learning support.</p>
+                        
+                        <p class="lead mt-3" style="text-align: justify;">The architecture enables seamless data flow from user interaction to intelligent decision-making.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="architecture-card h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-primary bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-database-add text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-primary mb-2">Data Collection Layer</h5>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">Captures behavioral data from gamified applications and physiological data from IoT sensors.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="architecture-card h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-secondary bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-gear-fill text-secondary fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-secondary mb-2">Data Processing Layer</h5>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">Cleans, normalizes, and synchronizes collected data for analysis and processing.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="architecture-card h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-info bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-cpu text-info fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-info mb-2">Machine Learning Layer</h5>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">Performs classification and predictive analytics to generate insights and recommendations.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="architecture-card h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-success bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-window-stack text-success fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-success mb-2">Application Layer</h5>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">Provides dashboards, recommendations, and chatbot interaction for users and educators.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results & Findings Section -->
+    <section class="results-findings-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-4 fw-bold mb-3">Results & Findings</h2>
+                <p class="lead text-muted">Experimental Evaluation and Key Outcomes</p>
+            </div>
+            
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-10">
+                    <div class="findings-overview p-5 bg-white rounded-3 shadow-sm" data-aos="fade-up">
+                        <p class="lead" style="text-align: justify;">The experimental evaluation demonstrates that integrating behavioral and physiological data significantly improves classification accuracy compared to single-data approaches.</p>
+                        
+                        <p class="lead mt-3" style="text-align: justify;">The results confirm the effectiveness of a multimodal approach in enhancing learning analytics.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mb-4" data-aos="fade-up">
+                <h4 class="fw-bold text-primary mb-3">Key findings include</h4>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="finding-tile h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-primary bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-eye-fill text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-primary mb-2" style="font-weight: 400;">Improved Detection of Student Engagement Levels</h4>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">Enhanced accuracy in identifying and monitoring student engagement patterns through multimodal data analysis.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="finding-tile h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-secondary bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-graph-up text-secondary fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-secondary mb-2" style="font-weight: 400;">Higher Accuracy in Functional Level Classification</h4>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">Significant improvement in classifying students into appropriate functional ability levels using combined data sources.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="finding-tile h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-info bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-bell-fill text-info fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-info mb-2" style="font-weight: 400;">Effective Early Identification of Attention Decline</h4>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">Early detection systems successfully identify attention decline patterns, enabling timely intervention and support.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="finding-tile h-100 p-4 bg-white rounded-3 shadow-sm border-0">
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="icon-box bg-success bg-opacity-10 rounded-2 p-3 me-3">
+                                <i class="bi bi-briefcase-fill text-success fs-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-success mb-2" style="font-weight: 400;">Meaningful Vocational Recommendations</h4>
+                            </div>
+                        </div>
+                        <p class="text-muted" style="text-align: justify;">Personalized career guidance aligned with individual student abilities and strengths, supporting successful vocational outcomes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="features-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-4 fw-bold mb-3">About Us</h2>
+                <p class="lead text-muted">Meet Our Research Team</p>
+            </div>
+            
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8">
+                    <div class="about-overview p-5 bg-white rounded-3 shadow-sm" data-aos="fade-up">
+                        <p class="lead" style="text-align: justify;">We are a dedicated team of Information Technology students from Sri Lanka Institute of Information Technology, working together to develop an innovative learning platform for students with Down syndrome.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Group Leader -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-member-card p-4 bg-white rounded-3 shadow-sm h-100">
+                        <div class="text-center">
+                            <img src="Dinula.jpeg" alt="Dinula Fonseka" class="img-fluid rounded-circle mb-3" style="max-width: 150px; height: 150px; object-fit: cover;">
+                            <h5 class="text-primary" style="font-weight: 400;">Group Leader</h5>
+                            <h4 class="text-primary mb-2" style="font-weight: 400;">Dinula Fonseka</h4>
+                            <p class="text-muted mb-2">BSc. (Hons) Degree in Information Technology Specialized in Information Technology</p>
+                            <p class="text-muted mb-2"><strong>Department of Information Technology</strong><br>Sri Lanka Institute of Information Technology<br>Sri Lanka</p>
+                            <div class="research-interests mt-3">
+                                <h6 class="text-secondary mb-2" style="font-weight: 400;">Research Interests:</h6>
+                                <div class="d-flex flex-wrap gap-2 justify-content-center">
+                                    <span class="badge bg-primary bg-opacity-10 text-primary">Artificial Intelligence (AI)</span>
+                                    <span class="badge bg-primary bg-opacity-10 text-primary">Internet of Things (IoT)</span>
+                                    <span class="badge bg-primary bg-opacity-10 text-primary">Machine Learning (ML)</span>
+                                    <span class="badge bg-primary bg-opacity-10 text-primary">Image Processing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Group Member 1 -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-member-card p-4 bg-white rounded-3 shadow-sm h-100">
+                        <div class="text-center">
+                            <img src="Sakuni.jpeg" alt="Sakunika Ganepola" class="img-fluid rounded-circle mb-3" style="max-width: 150px; height: 150px; object-fit: cover;">
+                            <h5 class="text-secondary" style="font-weight: 400;">Group Member</h5>
+                            <h4 class="text-secondary mb-2" style="font-weight: 400;">Sakunika Ganepola</h4>
+                            <p class="text-muted mb-2">BSc. (Hons) Degree in Information Technology Specialized in Information Technology</p>
+                            <p class="text-muted mb-2"><strong>Department of Information Technology</strong><br>Sri Lanka Institute of Information Technology<br>Sri Lanka</p>
+                            <div class="research-interests mt-3">
+                                <h6 class="text-secondary mb-2" style="font-weight: 400;">Research Interests:</h6>
+                                <div class="d-flex flex-wrap gap-2 justify-content-center">
+                                    <span class="badge bg-secondary bg-opacity-10 text-secondary">Healthcare - ML-based diagnostic systems</span>
+                                    <span class="badge bg-secondary bg-opacity-10 text-secondary">Social Science - NLP for behavior analysis</span>
+                                    <span class="badge bg-secondary bg-opacity-10 text-secondary">Sustainability - Climate optimization</span>
+                                    <span class="badge bg-secondary bg-opacity-10 text-secondary">XAI - Interpretable models</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Member 3 -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="team-member-card p-4 bg-white rounded-3 shadow-sm h-100">
+                        <div class="text-center">
+                            <img src="Dasuni.jpeg" alt="Dasuni Wijesuriya" class="img-fluid rounded-circle mb-3" style="max-width: 150px; height: 150px; object-fit: cover;">
+                            <h5 class="text-info" style="font-weight: 400;">Member 3</h5>
+                            <h4 class="text-info mb-2" style="font-weight: 400;">Dasuni Wijesuriya</h4>
+                            <p class="text-muted mb-2">BSc. (Hons) Degree in Information Technology Specialized in Information Technology</p>
+                            <p class="text-muted mb-2"><strong>Department of Information Technology</strong><br>Sri Lanka Institute of Information Technology<br>Sri Lanka</p>
+                            <div class="research-interests mt-3">
+                                <h6 class="text-info mb-2" style="font-weight: 400;">Research Interests:</h6>
+                                <div class="d-flex flex-wrap gap-2 justify-content-center">
+                                    <span class="badge bg-info bg-opacity-10 text-info">Artificial Intelligence (AI)</span>
+                                    <span class="badge bg-info bg-opacity-10 text-info">Machine Learning</span>
+                                    <span class="badge bg-info bg-opacity-10 text-info">Data Analytics</span>
+                                    <span class="badge bg-info bg-opacity-10 text-info">Mobile App Development (Flutter)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Member 4 -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="team-member-card p-4 bg-white rounded-3 shadow-sm h-100">
+                        <div class="text-center">
+                            <img src="Hiruni.jpeg" alt="Hiruni De Silva" class="img-fluid rounded-circle mb-3" style="max-width: 150px; height: 150px; object-fit: cover;">
+                            <h5 class="text-success" style="font-weight: 400;">Member 4</h5>
+                            <h4 class="text-success mb-2" style="font-weight: 400;">Hiruni De Silva</h4>
+                            <p class="text-muted mb-2">BSc. (Hons) Degree in Information Technology Specialized in Information Technology</p>
+                            <p class="text-muted mb-2"><strong>Department of Information Technology</strong><br>Sri Lanka Institute of Information Technology<br>Sri Lanka</p>
+                            <div class="research-interests mt-3">
+                                <h6 class="text-success mb-2" style="font-weight: 400;">Research Interests:</h6>
+                                <div class="d-flex flex-wrap gap-2 justify-content-center">
+                                    <span class="badge bg-success bg-opacity-10 text-success">AI in Special Education</span>
+                                    <span class="badge bg-success bg-opacity-10 text-success">ML for Personalized Learning</span>
+                                    <span class="badge bg-success bg-opacity-10 text-success">NLP and Conversational AI</span>
+                                    <span class="badge bg-success bg-opacity-10 text-success">Communication & Social Skills</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Card Modal -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="contactModalLabel">Get in Touch</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="contact-card">
+                        <div class="contact-icon mb-3">
+                            <i class="bi bi-envelope-heart-fill text-primary" style="font-size: 3rem;"></i>
+                        </div>
+                        <h4 class="mb-3">Nanapiyasa Learning Platform</h4>
+                        <p class="text-muted mb-4">We'd love to hear from you! Reach out to us for any questions, collaborations, or support.</p>
+                        <div class="contact-info">
+                            <div class="email-box p-3 bg-primary bg-opacity-10 rounded-3 mb-3">
+                                <i class="bi bi-envelope-fill text-primary me-2"></i>
+                                <strong class="text-primary">nanapiyasa.info@gmail.com</strong>
+                            </div>
+                            <button class="btn btn-primary" onclick="copyEmail()">
+                                <i class="bi bi-clipboard me-2"></i>Copy Email Address
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container text-center py-4">
+            <p class="mb-0">&copy; 2025 Nanapiyasa Learning Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Animated counter for statistics
+        function animateCounter() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
+
+            counters.forEach(counter => {
+                const animate = () => {
+                    const value = +counter.getAttribute('data-count');
+                    const data = +counter.innerText;
+                    const time = value / speed;
+
+                    if (data < value) {
+                        counter.innerText = Math.ceil(data + time);
+                        requestAnimationFrame(animate);
+                    } else {
+                        counter.innerText = value.toLocaleString();
+                    }
+                }
+                animate();
+            });
+        }
+
+        // Trigger counter animation when stats section is in view
+        const statsSection = document.querySelector('.stats-section');
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        observer.observe(statsSection);
+
+        // Button interactions
+        document.querySelectorAll('.btn-hero').forEach(button => {
+            button.addEventListener('click', function() {
+                if (this.textContent.includes('Get Started')) {
+                    document.querySelector('#courses').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                } else if (this.textContent.includes('Learn More')) {
+                    document.querySelector('#features').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Enroll button interactions
+        document.querySelectorAll('.course-card .btn-primary').forEach(button => {
+            button.addEventListener('click', function() {
+                alert('Enrollment feature coming soon! Contact us at info@nanapiyasa.com for more information.');
+            });
+        });
+
+        // Contact Us popup function
+        function showContactInfo(event) {
+            event.preventDefault();
+            var contactModal = new bootstrap.Modal(document.getElementById('contactModal'));
+            contactModal.show();
+        }
+
+        // Copy email function
+        function copyEmail() {
+            var email = 'nanapiyasa.info@gmail.com';
+            navigator.clipboard.writeText(email).then(function() {
+                // Show success message
+                var copyBtn = event.target;
+                var originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = '<i class="bi bi-check-circle me-2"></i>Email Copied!';
+                copyBtn.classList.remove('btn-primary');
+                copyBtn.classList.add('btn-success');
+                
+                setTimeout(function() {
+                    copyBtn.innerHTML = originalText;
+                    copyBtn.classList.remove('btn-success');
+                    copyBtn.classList.add('btn-primary');
+                }, 2000);
+            }).catch(function(err) {
+                // Fallback for older browsers
+                var textArea = document.createElement("textarea");
+                textArea.value = email;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                var copyBtn = event.target;
+                var originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = '<i class="bi bi-check-circle me-2"></i>Email Copied!';
+                copyBtn.classList.remove('btn-primary');
+                copyBtn.classList.add('btn-success');
+                
+                setTimeout(function() {
+                    copyBtn.innerHTML = originalText;
+                    copyBtn.classList.remove('btn-success');
+                    copyBtn.classList.add('btn-primary');
+                }, 2000);
+            });
+        }
+
+        // Scroll spy functionality to highlight current navigation tab
+        function updateActiveNavigation() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            
+            let currentSection = '';
+            const scrollPosition = window.pageYOffset + 150; // Offset for navbar height
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            // If no section is found, default to home
+            if (!currentSection && scrollPosition < 200) {
+                currentSection = 'home';
+            }
+            
+            // Remove active class from all nav links
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Add active class to current section's nav link
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === '#' + currentSection) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Debug logging (remove in production)
+            console.log('Scroll position:', scrollPosition);
+            console.log('Current section:', currentSection);
+        }
+
+        // Initialize scroll spy on page load and scroll
+        document.addEventListener('DOMContentLoaded', updateActiveNavigation);
+        window.addEventListener('load', updateActiveNavigation);
+        window.addEventListener('scroll', updateActiveNavigation);
+        
+        // Update on resize
+        window.addEventListener('resize', updateActiveNavigation);
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.navbar-nav .nav-link[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId !== '#' && targetId !== '#contact') { // Exclude contact modal link
+                    e.preventDefault();
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        const offsetTop = targetSection.offsetTop - 80; // Account for navbar height
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
